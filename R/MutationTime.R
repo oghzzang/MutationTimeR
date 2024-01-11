@@ -792,8 +792,7 @@ mtToTime <- function(cn, timing_param = cn$timing_param, n.snv_mnv = cn$n.snv_mn
 	maj <- sapply(timing_param, function(x) if(length(x) > 0) x[1, "majCNanc"] else NA) #bb$major_cn
 	min <- sapply(timing_param, function(x) if(length(x) > 0) x[1, "minCNanc"] else NA) #bb$minor_cn
 	type <- sapply(seq_along(cn), function(i){
-				# if(maj[i] < 2 | is.na(maj[i]) | sub[i] | (maj[i] > 4 & min[i] >= 2)) return(NA) # -- original
-				if(maj[i] < 2 | is.na(maj[i]) | sub[i]) return(NA)  # -- edit
+				if(maj[i] < 2 | is.na(maj[i]) | sub[i]) return(NA)  # edit
 				type <- if(min[i]==1){ "Mono-allelic Gain" 
 						}else if(min[i]==0){"CN-LOH"}
 						else "Bi-allelic Gain (WGD)"
